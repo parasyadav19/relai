@@ -1,9 +1,10 @@
 const API_URL = "https://hakunamatata-x7y7.onrender.com";
 
 export const registerStudentAPI = async (rollno, name, photo) => {
+  const cleanRoll = rollno.trim().toUpperCase().replace('O508', '0508');
   const fd = new FormData();
-  fd.append('rollno', rollno);
-  fd.append('name', name);
+  fd.append('rollno', cleanRoll);
+  fd.append('name', name.trim());
   fd.append('role', 'student');
   fd.append('branch', 'CSE');
   fd.append('year', '3rd Year');
